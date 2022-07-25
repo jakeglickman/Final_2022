@@ -72,7 +72,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-
+The inferential results show that those that took the placebo are a little over twice as likely to catch covid19 as those that took the vaccine. The p-value being very low signifies that there is a small chance of getting thses results if there was no difference between the placebo and the vaccine.
 
 ## Females
 ```{r}
