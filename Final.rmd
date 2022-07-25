@@ -83,6 +83,22 @@ Females <- filter(FinalDat, sex=="F")
 Females <- select(Females, -sex)
 ```
 
+```{r}
+dd2 <- Females %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+The bar chart shows the rate females who took the placebo or the vaccine got infected. For those that got covid19 about 60% had taken the placebo, while about 40% had taken the vaccine.
 
 ## LGBTQ
 
