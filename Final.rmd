@@ -63,7 +63,7 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
-
+The numerical data tells us that of those that took the placebo 2.63% got covid19. Of those that took the vaccine 1.28% got covid19. These results are indicating that the vaccine is effective.
 
 ## Females
 ```{r}
