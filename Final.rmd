@@ -30,7 +30,7 @@ FinalDat <- read.csv(file="final_Data.csv")
 
 A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-## Males
+# Males
 ```{r}
 Males <- filter(FinalDat, sex=="M")
 ```
@@ -39,6 +39,7 @@ Males <- filter(FinalDat, sex=="M")
 Males <- select(Males, -sex)
 ```
 
+## Graphic Description
 ```{r}
 dd2 <- Males %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
@@ -56,7 +57,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 The bar chart shows the infected rate of males who took the placebo and those who took the covid19 vaccine. About 70% of males who got covid19 took the placebo while only about 30% had the vaccine. For those that were OK it was about 50-50 for the placebo and the vaccine.
 
-
+## Numerical Results
 ```{r}
 table1 <- xtabs(~infected + treatment, data=Males)
 rowPerc(table1)
@@ -65,7 +66,7 @@ colPerc(table1)
 
 The numerical data tells us that of those that took the placebo 2.63% got covid19. Of those that took the vaccine 1.28% got covid19. These results are indicating that the vaccine is effective.
 
-
+## Inferential Results
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
@@ -74,7 +75,7 @@ fisher.test(table1)
 
 The inferential results show that those that took the placebo are a little over twice as likely to catch covid19 as those that took the vaccine. The p-value being very low signifies that there is a small chance of getting thses results if there was no difference between the placebo and the vaccine.
 
-## Females
+# Females
 ```{r}
 Females <- filter(FinalDat, sex=="F")
 ```
@@ -83,6 +84,7 @@ Females <- filter(FinalDat, sex=="F")
 Females <- select(Females, -sex)
 ```
 
+## Graphic Description
 ```{r}
 dd2 <- Females %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
@@ -100,10 +102,18 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 The bar chart shows the rate females who took the placebo or the vaccine got infected. For those that got covid19 about 60% had taken the placebo, while about 40% had taken the vaccine.
 
-## LGBTQ
 
 
 
-## Druggies
 
+
+# LGBTQ
+
+
+
+# Druggies
+
+
+
+# Conclusion
 
