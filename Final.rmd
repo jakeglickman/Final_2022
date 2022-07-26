@@ -112,6 +112,17 @@ colPerc(table2)
 
 The numerical results show that about 2.3% of those that took the placebo got covid19, while 1.62% of those that took the vaccine got it. The data tells us that the females who took the vaccine got covid19 at a lower rate than those who took the placebo.
 
+
+
+## Inferential Results
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
+
+The results show about a 1.43 odds ratio. This tells us that those that took the placebo are about 1.43 times as likely to catch covid19 than those that took the vaccine. The results also gave a low p-value which indicates a low chance of getting these results if there was no difference between females who took the placebo or the vaccine.
+
 # LGBTQ
 
 
