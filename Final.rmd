@@ -20,9 +20,6 @@ FinalData <- FinalData %>%
 mutate(across(where(is.character), as.factor))
 ```
 
-```{r}
-FinalDat <- read.csv(file="final_Data.csv")
-```
 
 
 
@@ -32,7 +29,7 @@ A new  preventative vaccine (covid91) is under test in clinical trials. Given th
 
 # Males
 ```{r}
-Males <- filter(FinalDat, sex=="M")
+Males <- filter(FinalData, sex=="M")
 ```
 
 ```{r}
@@ -93,7 +90,7 @@ The confidence interval for the effectiveness of the vaccine on males has a low 
 
 # Females
 ```{r}
-Females <- filter(FinalDat, sex=="F")
+Females <- filter(FinalData, sex=="F")
 ```
 
 ```{r}
@@ -153,6 +150,29 @@ The confidence interval of the effectiveness of the vaccine for females has a lo
 
 
 # LGBTQ
+```{r}
+LGBTQ<-filter(FinalData, LGBTQ == "gay")
+```
+
+## Graphic Description
+```{r}
+dd2 <- LGBTQ %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+The barchart shows that for the LGBTQ those that took the vaccine got covid19 at a higher rate than those that took the placebo. Nearly 85% of those that got covid19 took the vaccine while only about 15% of those that got covid took the placebo.
+
+
 
 
 
