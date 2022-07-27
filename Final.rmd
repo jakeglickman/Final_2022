@@ -191,6 +191,18 @@ fishtestL
 
 The odds ratio of 0.1 tells us that those that took the placebo are 0.1 times as likely to catch covid19 than those that took the vaccine.
 
+## Efficacy
+```{r}
+Leffic=fishtestL$estimate/(1+fishtestL$estimate)*100
+Lefficlo=fishtestL$conf.int[1]/(1+fishtestL$conf.int[1])*100
+Leffichi=fishtestL$conf.int[2]/(1+fishtestL$conf.int[2])*100
+print(Leffic)
+print(Lefficlo)
+print(Leffichi)
+```
+
+The efficacy shows that the vaccine is 13% effective. The confidence interval for the effectiveness of the vaccine shows a low of `r Lefficlo` and a high of `r Leffichi`.
+
 # Druggies
 
 
