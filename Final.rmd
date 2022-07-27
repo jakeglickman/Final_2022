@@ -172,9 +172,14 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 The barchart shows that for the LGBTQ those that took the vaccine got covid19 at a higher rate than those that took the placebo. Nearly 85% of those that got covid19 took the vaccine while only about 15% of those that got covid took the placebo.
 
+## Numerical Results
+```{r}
+table3 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table3)
+colPerc(table3)
+```
 
-
-
+The numerical results tell us that for the LGBTQ, 3% of those that took the vaccine got covid19 while only 0.5% of those that took the placebo got it.
 
 # Druggies
 
