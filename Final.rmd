@@ -204,8 +204,28 @@ print(Leffichi)
 The efficacy shows that the vaccine is 13% effective. The confidence interval for the effectiveness of the vaccine shows a low of `r Lefficlo` and a high of `r Leffichi`.
 
 # Druggies
+```{r}
+DrugUser<-filter(FinalData, DrugUser == "yes")
+```
 
 
+## Graphic Description
+```{r}
+dd2 <- DrugUser %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+The results from the barchart for the Drug users shows that those that took the vaccine got covid19 more than those that took the placebo. About 85% of those that got covid19 took the vaccine, while about 15% of those that got it took the placebo.
 
 # Conclusion
 
