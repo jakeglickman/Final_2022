@@ -227,5 +227,15 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 The results from the barchart for the Drug users shows that those that took the vaccine got covid19 more than those that took the placebo. About 85% of those that got covid19 took the vaccine, while about 15% of those that got it took the placebo.
 
+
+## Numerical Results
+```{r}
+table4 <- xtabs(~infected + treatment, data=DrugUser)
+rowPerc(table4)
+colPerc(table4)
+```
+
+The numerical results tell us that for the drug users about 3% of those that took the vaccine got covid19, and 0.6% of those who took the placebo got covid19.
+
 # Conclusion
 
