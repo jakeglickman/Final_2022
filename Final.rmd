@@ -263,3 +263,6 @@ The efficacy shows that the vaccine is 15% effective. This confidence interval h
 
 # Conclusion
 
+The vaccine for males was effective in protecting them from covid19. The effectiveness of the vaccine for males was `r maleffic`, which was the highest for any group. The vaccine was effective in preventing females from getting covid19 as well. The efficacy results showed that for females the vaccine has a `r femeffic` effectiveness. The vaccine did not protect the individuals that were LGBTQ from getting covid19. The effectiveness of the vaccine on the LGBTQ individuals was only `r Leffic`, which was the lowest of any group. The vaccine did not work for the DrugUsers either, with only `r Deffic` effectiveness.
+
+The vaccine should be taken if you are a male or female with no other variables. It is not recommended to take the vaccine if you are an individual who is LGBTQ or a Drug User.
